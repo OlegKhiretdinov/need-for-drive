@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/need-for-drive/static/css/main.bab0620b.css",
-    "main.js": "/need-for-drive/static/js/main.8d6a2576.js",
+    "main.js": "/need-for-drive/static/js/main.2fa5349e.js",
     "static/media/slide1.jpg": "/need-for-drive/static/media/slide1.99555a72239613871d0b.jpg",
     "static/media/Roboto-Medium.ttf": "/need-for-drive/static/media/Roboto-Medium.7429a63c09f79a1760b0.ttf",
     "static/media/Roboto-Bold.ttf": "/need-for-drive/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
@@ -12,10 +12,10 @@
     "index.html": "/need-for-drive/index.html",
     "static/media/facebook.svg": "/need-for-drive/static/media/facebook.c5c32d5015ec58c04ca24c95c8fa4519.svg",
     "main.bab0620b.css.map": "/need-for-drive/static/css/main.bab0620b.css.map",
-    "main.8d6a2576.js.map": "/need-for-drive/static/js/main.8d6a2576.js.map"
+    "main.2fa5349e.js.map": "/need-for-drive/static/js/main.2fa5349e.js.map"
   },
   "entrypoints": [
     "static/css/main.bab0620b.css",
-    "static/js/main.8d6a2576.js"
+    "static/js/main.2fa5349e.js"
   ]
 }

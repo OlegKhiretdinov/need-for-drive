@@ -1,0 +1,90 @@
+@import "../../styles/const.scss";
+
+.MainPage {
+  display: flex;
+}
+
+.Page {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+}
+
+.Overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.PageOverlay {
+  background-color: rgba(21, 27, 31, 0.81);
+}
+
+.MenuTriggerWrapper {
+  position: fixed;
+  top: 30px;
+  left: 18px;
+  z-index: 1000;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 0 64px;
+}
+
+.Title {
+  margin: 34px 0;
+  font-size: 70px;
+  line-height: 66px;
+  font-weight: 700;
+  .accent {
+    color: $accent;
+    white-space: nowrap;
+  }
+}
+
+.Description {
+  margin-bottom: 60px;
+  font-size: 26px;
+  line-height: 30px;
+  color: $gray;
+}
+
+@media all and (max-width: 1439px) {
+  .Content {
+    padding: 0 32px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .MainPage {
+    min-height: 100vh;
+  }
+  .Content {
+    padding: 0;
+  }
+  .MenuTriggerWrapper {
+    top: 24px;
+    left: 22px;
+  }
+  .Title {
+    margin: 32px 16px 16px;
+    font-size: 32px;
+    line-height: 100%;
+  }
+  .Description {
+    margin: 0 16px 32px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .Button {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0;
+  }
+}

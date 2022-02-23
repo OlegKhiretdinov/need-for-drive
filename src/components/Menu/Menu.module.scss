@@ -1,0 +1,81 @@
+@import "../../styles/const.scss";
+
+.Overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #111518;
+}
+
+.Menu {
+  position: absolute;
+  left: 128px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.List {
+  padding: 0;
+  margin: 0;
+}
+
+.Item {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: $accent;
+  }
+}
+
+.Social {
+  height: 32px;
+  position: absolute;
+  bottom: -70px;
+}
+
+.SocialItem {
+  margin-right: 24px;
+  color: white;
+  &:last-of-type {
+    margin-right: 0;
+  }
+  &:hover {
+    color: $accent;
+  }
+}
+
+.LangWrapper {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+@media all and (max-width: 1439px) {
+  .Menu {
+    left: 97px;
+  }
+}
+
+@media all and (max-width: 1023px) {
+  .Item {
+    font-size: 28px;
+    line-height: 33px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .Menu {
+    left: 28px;
+    top: 80px;
+    transform: translateY(0);
+  }
+  .Item {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

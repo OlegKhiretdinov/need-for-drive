@@ -1,8 +1,13 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import MainPage from "./components/MainPage/MainPage"
+
 const App = () => {
   return (
-    <div>
-      <h1>Neef for Drive</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

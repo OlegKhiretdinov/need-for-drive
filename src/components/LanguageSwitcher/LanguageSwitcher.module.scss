@@ -1,0 +1,28 @@
+@import "../../styles/const.scss";
+
+.wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  color: $accent;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+
+  span {
+    line-height: 46px;
+  }
+
+  &:hover {
+    border: 1px solid white;
+    color: white;
+  }
+
+  &:active {
+    color: $accent;
+  }
+}

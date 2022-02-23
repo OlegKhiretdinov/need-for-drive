@@ -8,7 +8,9 @@ const Slider = () => {
     <div
       key={index}
       className={cls.item}
-      style={{ backgroundImage: `url(${slide.img})` }}
+      style={{
+        background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url(${slide.img}) center/cover`,
+      }}
     >
       <div className={cls.content}>
         <h1 className={cls.title}>{slide.title}</h1>

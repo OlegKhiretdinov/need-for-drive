@@ -6,20 +6,7 @@
   width: 688px;
   height: 100vh;
   box-sizing: border-box;
-  background-size: cover;
-  background-position: center;
   color: white;
-  position: relative;
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-  }
 }
 
 .content {
@@ -56,8 +43,3 @@
 .purple {
   background: linear-gradient(90deg, #281349 0%, #720c7b 100%);
 }
-
-// .aaa {
-//   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)
-//   position
-// }

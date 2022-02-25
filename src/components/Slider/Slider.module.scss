@@ -1,9 +1,14 @@
 @import "../../styles/const.scss";
 
+.wrapper {
+  width: 688px;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+
 .item {
   display: flex;
   padding: 0 64px;
-  width: 688px;
   height: 100vh;
   box-sizing: border-box;
   color: white;
@@ -12,6 +17,7 @@
 .content {
   margin: auto;
   max-width: 495px;
+  text-align: left;
 }
 
 .title {
@@ -42,4 +48,75 @@
 
 .purple {
   background: linear-gradient(90deg, #281349 0%, #720c7b 100%);
+}
+
+.indicatorStyle {
+  margin: 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.selectedIndicator {
+  background: $accent;
+}
+
+.button {
+  width: 64px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  border: none;
+  background: none;
+  cursor: pointer;
+  &:hover {
+    background: $accent;
+    opacity: 0.2;
+  }
+}
+
+.buttonLeft {
+  left: 0;
+}
+
+.buttonRight {
+  right: 0;
+}
+
+.arrow {
+  height: 13px;
+  width: 13px;
+  position: absolute;
+  top: 50%;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  z-index: 5;
+}
+
+.arrowLeft {
+  left: 28px;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+.arrowRight {
+  right: 28px;
+  transform: translateY(50%) rotate(135deg);
+}
+
+@media all and(max-width:1439px) {
+  .button {
+    width: 32px;
+  }
+
+  .arrowLeft {
+    left: 12px;
+  }
+
+  .arrowRight {
+    right: 12px;
+  }
 }

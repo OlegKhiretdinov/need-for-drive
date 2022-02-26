@@ -1,8 +1,11 @@
 {
   "files": {
-    "main.css": "/need-for-drive/static/css/main.e795676c.css",
-    "main.js": "/need-for-drive/static/js/main.fbb8bf55.js",
+    "main.css": "/need-for-drive/static/css/main.940a12fe.css",
+    "main.js": "/need-for-drive/static/js/main.27d47770.js",
     "static/media/slide1.jpg": "/need-for-drive/static/media/slide1.99555a72239613871d0b.jpg",
+    "static/media/slide4.jpg": "/need-for-drive/static/media/slide4.ca552895eed8fbc0421a.jpg",
+    "static/media/slide3.jpg": "/need-for-drive/static/media/slide3.f9b3cbd7a6c15671fab4.jpg",
+    "static/media/slide2.jpg": "/need-for-drive/static/media/slide2.0fb9b120967a4cf0dcdd.jpg",
     "static/media/Roboto-Medium.ttf": "/need-for-drive/static/media/Roboto-Medium.7429a63c09f79a1760b0.ttf",
     "static/media/Roboto-Bold.ttf": "/need-for-drive/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
     "static/media/Roboto-Light.ttf": "/need-for-drive/static/media/Roboto-Light.8be2d1487420548b3b8d.ttf",
@@ -11,11 +14,11 @@
     "static/media/locationPoint.svg": "/need-for-drive/static/media/locationPoint.17bb023094897883442f7e808416bac8.svg",
     "index.html": "/need-for-drive/index.html",
     "static/media/facebook.svg": "/need-for-drive/static/media/facebook.c5c32d5015ec58c04ca24c95c8fa4519.svg",
-    "main.e795676c.css.map": "/need-for-drive/static/css/main.e795676c.css.map",
-    "main.fbb8bf55.js.map": "/need-for-drive/static/js/main.fbb8bf55.js.map"
+    "main.940a12fe.css.map": "/need-for-drive/static/css/main.940a12fe.css.map",
+    "main.27d47770.js.map": "/need-for-drive/static/js/main.27d47770.js.map"
   },
   "entrypoints": [
-    "static/css/main.e795676c.css",
-    "static/js/main.fbb8bf55.js"
+    "static/css/main.940a12fe.css",
+    "static/js/main.27d47770.js"
   ]
 }

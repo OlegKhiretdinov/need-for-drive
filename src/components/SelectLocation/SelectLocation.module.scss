@@ -1,0 +1,16 @@
+.wrapper {
+  padding: 32px;
+}
+
+.map {
+  padding: 16px 0;
+}
+
+.select {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 45px;
+  text-align: right;
+}

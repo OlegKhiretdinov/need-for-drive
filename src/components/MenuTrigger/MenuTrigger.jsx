@@ -1,6 +1,6 @@
 import cls from "./MenuTrigger.module.scss"
 
-const Menu = ({ isShowMenu, setIsShowMenu }) => {
+const MenuMenuTrigger = ({ isShowMenu, setIsShowMenu }) => {
   const handleTriggerMenuClick = () => {
     setIsShowMenu(!isShowMenu)
   }
@@ -15,4 +15,4 @@ const Menu = ({ isShowMenu, setIsShowMenu }) => {
     </>
   )
 }
-export default Menu
+export default MenuMenuTrigger

@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+}
+
+.headerWrapper {
+  margin: 0 auto;
+  padding: 0 64px;
+  max-width: 1376px;
+  box-sizing: border-box;
+}
+
+.page {
+  flex-grow: 1;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1376px;
+  padding: 0 32px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.MenuTriggerWrapper {
+  position: fixed;
+  top: 30px;
+  left: 18px;
+  z-index: 1000;
+}

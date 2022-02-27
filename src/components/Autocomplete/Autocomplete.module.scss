@@ -1,0 +1,29 @@
+@import "../../styles/const.scss";
+
+.wrapper {
+  width: 224px;
+  position: relative;
+}
+
+.field {
+  padding: 2px 20px 2px 8px;
+  width: 224px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid $gray;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clear {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+  color: $black;
+  svg {
+    vertical-align: top;
+  }
+}

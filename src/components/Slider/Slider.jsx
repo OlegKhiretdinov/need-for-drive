@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom"
 import sliderContent from "../../assets/content/sliderContent"
 import LinkButton from "../LinkButton/LinkButton"
 import cls from "./Slider.module.scss"

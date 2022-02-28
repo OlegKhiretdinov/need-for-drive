@@ -27,33 +27,33 @@ const MainPage = () => {
 
   return (
     <>
-      {isShowMenu && <div className={`${cls.Overlay} ${cls.PageOverlay}`} />}
+      {isShowMenu && <div className={`${cls.overlay} ${cls.pageOverlay}`} />}
 
-      <div className={cls.MainPage}>
-        <div className={cls.Page}>
+      <div className={cls.mainPage}>
+        <div className={cls.page}>
           {devise !== DEVISE.mobile && <SideBar />}
 
-          <div className={cls.Content}>
+          <div className={cls.content}>
             <Header />
             <div>
-              <h1 className={cls.Title}>
+              <h1 className={cls.title}>
                 <span>Каршеринг</span>
                 <br />
                 <span className={cls.accent}>Need for drive</span>
               </h1>
-              <p className={cls.Description}>
+              <p className={cls.description}>
                 Поминутная аренда авто твоего города
               </p>
               <LinkButton
                 to={"/order"}
                 text={"Забронировать"}
-                className={cls.Button}
+                className={cls.button}
               />
             </div>
             <Footer />
           </div>
 
-          <div className={cls.MenuTriggerWrapper}>
+          <div className={cls.menuTriggerWrapper}>
             <MenuTrigger
               isShowMenu={isShowMenu}
               setIsShowMenu={setIsShowMenu}

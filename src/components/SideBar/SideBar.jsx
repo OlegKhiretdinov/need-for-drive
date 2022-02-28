@@ -3,7 +3,7 @@ import cls from "./SideBar.module.scss"
 
 const SideBar = () => {
   return (
-    <div className={cls.SideBar}>
+    <div className={cls.sideBar}>
       <LanguageSwitcher />
     </div>
   )

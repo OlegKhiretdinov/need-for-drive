@@ -1,16 +1,16 @@
 @import "../../styles/const.scss";
 
-.MainPage {
+.mainPage {
   display: flex;
 }
 
-.Page {
+.page {
   flex-grow: 1;
   position: relative;
   display: flex;
 }
 
-.Overlay {
+.overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -18,18 +18,18 @@
   left: 0;
 }
 
-.PageOverlay {
+.pageOverlay {
   background-color: rgba(21, 27, 31, 0.81);
 }
 
-.MenuTriggerWrapper {
+.menuTriggerWrapper {
   position: fixed;
   top: 30px;
   left: 18px;
   z-index: 1000;
 }
 
-.Content {
+.content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,7 +37,7 @@
   padding: 0 64px;
 }
 
-.Title {
+.title {
   margin: 34px 0;
   font-size: 70px;
   line-height: 66px;
@@ -48,7 +48,7 @@
   }
 }
 
-.Description {
+.description {
   margin-bottom: 60px;
   font-size: 26px;
   line-height: 30px;
@@ -56,33 +56,33 @@
 }
 
 @media all and (max-width: 1439px) {
-  .Content {
+  .content {
     padding: 0 32px;
   }
 }
 
 @media all and (max-width: 767px) {
-  .MainPage {
+  .mainPage {
     min-height: 100vh;
   }
-  .Content {
+  .content {
     padding: 0;
   }
-  .MenuTriggerWrapper {
+  .menuTriggerWrapper {
     top: 24px;
     left: 22px;
   }
-  .Title {
+  .title {
     margin: 32px 16px 16px;
     font-size: 32px;
     line-height: 100%;
   }
-  .Description {
+  .description {
     margin: 0 16px 32px;
     font-size: 18px;
     line-height: 21px;
   }
-  .Button {
+  .button {
     width: 100%;
     box-sizing: border-box;
     border-radius: 0;

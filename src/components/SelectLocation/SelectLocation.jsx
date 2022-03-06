@@ -3,13 +3,52 @@ import map from "../../assets/img/map.jpg"
 import cls from "./SelectLocation.module.scss"
 import { useEffect } from "react"
 import { connect } from "react-redux"
-import { setCity, setCityList } from "../../store/locationReducer"
+import {
+  setCity,
+  setCityList,
+  setPoint,
+  setPointList,
+} from "../../store/locationReducer"
 
 const SelectLocation = (props) => {
-  const { city, cityList, setCityList } = props
+  const {
+    city,
+    cityList,
+    setCityList,
+    setCity,
+    point,
+    pointList,
+    setPointList,
+    setPoint,
+  } = props
+
   useEffect(() => {
     cityList.length === 0 && setCityList()
   }, [])
+
+  useEffect(() => {
+    city?.id && setPointList(city)
+  }, [city, setPointList])
+
+  const handleSelectCity = (id) => {
+    if (id === null) {
+      setPoint({})
+      setPointList([])
+      setCity({})
+    } else {
+      const selectedCity = cityList.find((item) => item.id === id)
+      setCity(selectedCity)
+    }
+  }
+
+  const handleSelectPoint = (id) => {
+    if (id === null) {
+      setPoint({})
+    } else {
+      const selectedPoint = pointList.find((item) => item.id === id)
+      setPoint(selectedPoint)
+    }
+  }
 
   return (
     <>
@@ -18,13 +57,17 @@ const SelectLocation = (props) => {
           <div>Город</div>
           <Autocomplete
             placeholder="Начните вводить город ..."
-            value={city.name}
+            initialValue={city?.name}
             list={cityList}
+            handleSelect={handleSelectCity}
           />
           <div>Пункт выдачи</div>
           <Autocomplete
             placeholder="Начните вводить пункт ..."
             isDisable={!city.name}
+            initialValue={point.name}
+            list={pointList}
+            handleSelect={handleSelectPoint}
           />
         </div>
 
@@ -40,14 +83,22 @@ const SelectLocation = (props) => {
 const mapStateToProps = (state) => ({
   cityList: state.location.cityList,
   city: state.location.city,
+  pointList: state.location.pointList,
+  point: state.location.point,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   setCityList: () => {
     dispatch(setCityList())
   },
-  setCity: () => {
-    dispatch(setCity())
+  setCity: (city) => {
+    dispatch(setCity(city))
+  },
+  setPointList: () => {
+    dispatch(setPointList())
+  },
+  setPoint: (point) => {
+    dispatch(setPoint(point))
   },
 })
 

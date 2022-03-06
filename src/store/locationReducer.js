@@ -1,4 +1,4 @@
-import { getCityList } from "../api/request"
+import { getCityList, getPointList } from "../api/request"
 
 const SET_CITY = "SET_CITY"
 const SET_CITY_LIST = "SET_CITY_LIST"
@@ -37,19 +37,24 @@ export const setCity = (city) => ({
   city,
 })
 
-// const setPointList = (pointList) => ({
-//   type: SET_POINT_LIST,
-//   pointList,
-// })
+const setPointListData = (pointList) => ({
+  type: SET_POINT_LIST,
+  pointList,
+})
 
-// const setPoint = (point) => ({
-//   type: SET_POINT,
-//   point,
-// })
+export const setPoint = (point) => ({
+  type: SET_POINT,
+  point,
+})
 
 export const setCityList = () => async (dispatch) => {
   const cityList = await getCityList()
   dispatch(setCityListData(cityList.data))
+}
+
+export const setPointList = () => async (dispatch, getState) => {
+  const pointList = await getPointList(getState().location.city?.id)
+  dispatch(setPointListData(pointList.data))
 }
 
 export default locationReducer

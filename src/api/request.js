@@ -10,3 +10,10 @@ export const getCityList = () => {
     (response) => response.json()
   )
 }
+
+export const getPointList = (cityId) => {
+  const filter = cityId ? `?cityId=${cityId}` : ""
+  return fetch(`${baseUrl}db/point${filter}`, { method: "GET", headers }).then(
+    (response) => response.json()
+  )
+}

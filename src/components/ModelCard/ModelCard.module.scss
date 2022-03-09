@@ -42,3 +42,9 @@
     max-height: 100%;
   }
 }
+
+@media all and (max-width: 767px) {
+  .card {
+    width: 286px;
+  }
+}

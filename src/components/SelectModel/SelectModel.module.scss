@@ -1,0 +1,44 @@
+@import "../../styles/const.scss";
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+
+  input {
+    margin: 0px 8px;
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    border: 1px solid $gray;
+    border-radius: 50%;
+    cursor: pointer;
+
+    :first-of-type {
+      margin-right: 0px;
+    }
+
+    &:checked {
+      border: 3px solid $accent;
+      + label {
+        color: $black;
+      }
+    }
+  }
+
+  .item {
+    flex-shrink: 0;
+  }
+
+  label {
+    margin-right: 8px;
+    color: $gray;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}
+
+.carsList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 48px;
+}

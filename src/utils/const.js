@@ -11,3 +11,9 @@ export const SCREEN_SIZE = {
   tab: 1023,
   mobile: 768,
 }
+
+export const defaultCategoryFilter = {
+  id: "null",
+  name: "Все модели",
+  description: "Все модели",
+}

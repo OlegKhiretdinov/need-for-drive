@@ -22,6 +22,10 @@
   margin: 0 auto;
 }
 
+.orderWrapper {
+  padding: 32px;
+}
+
 .MenuTriggerWrapper {
   position: fixed;
   top: 30px;
@@ -35,6 +39,9 @@
   }
   .main {
     flex-wrap: wrap;
+  }
+  .orderWrapper {
+    padding: 32px 0;
   }
 }
 

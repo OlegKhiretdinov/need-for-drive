@@ -9,11 +9,14 @@ import OrderInfo from "../OrderInfo/OrderInfo"
 import { getDevice } from "../../utils/utils"
 import { DEVISE } from "../../utils/const"
 import cls from "./OrderPage.module.scss"
-import { Route, Routes, Navigate } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
+import SelectModel from "../SelectModel/SelectModel"
 
 const OrderPage = () => {
   const [isShowMenu, setIsShowMenu] = useState(false)
   const [devise, setDevise] = useState(getDevice(window))
+
+  const { step } = useParams()
 
   const handelResize = useCallback(() => {
     getDevice(window) !== devise && setDevise(getDevice(window))
@@ -26,6 +29,17 @@ const OrderPage = () => {
     }
   }, [handelResize])
 
+  const orderContent = (step) => {
+    switch (step) {
+      case "location":
+        return <SelectLocation />
+      case "model":
+        return <SelectModel />
+      default:
+        return <Navigate to="/order" />
+    }
+  }
+
   return (
     <div className={cls.wrapper}>
       {devise !== DEVISE.mobile && <SideBar />}
@@ -35,10 +49,7 @@ const OrderPage = () => {
         </div>
         <OrderNavigation />
         <div className={cls.main}>
-          <Routes>
-            <Route exact path="/" element={<Navigate to="location" />} />
-            <Route exact path="/location" element={<SelectLocation />} />
-          </Routes>
+          <div className={cls.orderWrapper}>{orderContent(step)}</div>
           <OrderInfo />
         </div>
       </div>

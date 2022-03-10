@@ -42,7 +42,8 @@ const OrderInfo = () => {
         to={`/order/${buttonConfig[step].to}`}
         text={buttonConfig[step].text}
         isLoading={false}
-        // isBlocked={true}
+        className={cls.orderButton}
+        isBlocked={true}
       />
     </div>
   )

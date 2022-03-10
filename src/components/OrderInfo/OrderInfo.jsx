@@ -12,13 +12,25 @@ const buttonConfig = {
 
 const OrderInfo = () => {
   const location = useSelector((state) => state.location)
+  const { model } = useSelector((state) => state.model)
   const { step } = useParams()
 
-  const stepOneString = location.point?.address
+  const SelectedLocation = location.point?.address
     ? `${location.city.name}, ${location.point?.address}`
     : ""
 
-  const selectedModelName = useSelector((state) => state.model.model.name)
+  const getButtonStatus = (step) => {
+    switch (step) {
+      case "location":
+        return !location.point?.id
+      case "model":
+        return !model?.id
+      default:
+        return false
+    }
+  }
+
+  const price = model?.id && `${model.priceMin} - ${model.priceMax}`
 
   return (
     <div className={cls.wrapper}>
@@ -26,24 +38,24 @@ const OrderInfo = () => {
       <div className={cls.row}>
         <div className={cls.label}>Пункт выдачи</div>
         <div className={cls.space} />
-        <div className={cls.value}>{stepOneString}</div>
+        <div className={cls.value}>{SelectedLocation}</div>
       </div>
-      {selectedModelName && (
+      {model.name && (
         <div className={cls.row}>
           <div className={cls.label}>Модель</div>
           <div className={cls.space} />
-          <div className={cls.value}>{selectedModelName}</div>
+          <div className={cls.value}>{model.name}</div>
         </div>
       )}
       <div className={cls.price}>
-        <b>Цена:</b> от 8 000 до 12 000 ₽
+        <b>Цена:</b> {price}
       </div>
       <LinkButton
         to={`/order/${buttonConfig[step].to}`}
         text={buttonConfig[step].text}
         isLoading={false}
         className={cls.orderButton}
-        isBlocked={true}
+        isBlocked={getButtonStatus(step)}
       />
     </div>
   )

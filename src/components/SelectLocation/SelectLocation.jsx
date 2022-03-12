@@ -1,52 +1,46 @@
-import Autocomplete from "../Autocomplete/Autocomplete"
-import map from "../../assets/img/map.jpg"
-import cls from "./SelectLocation.module.scss"
 import { useEffect } from "react"
-import { connect } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import Autocomplete from "../Autocomplete/Autocomplete"
+import cls from "./SelectLocation.module.scss"
 import {
   setCity,
   setCityList,
   setPoint,
   setPointList,
 } from "../../store/locationReducer"
+import CustomMap from "../CustomMap/CustomMap"
 
-const SelectLocation = (props) => {
-  const {
-    city,
-    cityList,
-    setCityList,
-    setCity,
-    point,
-    pointList,
-    setPointList,
-    setPoint,
-  } = props
+const SelectLocation = () => {
+  const dispatch = useDispatch()
+  const { city, cityList, point, pointList } = useSelector(
+    (state) => state.location
+  )
 
   useEffect(() => {
-    cityList.length === 0 && setCityList()
+    cityList.length === 0 && dispatch(setCityList())
   }, [])
 
   useEffect(() => {
-    city?.id && setPointList(city)
-  }, [city, setPointList])
+    city?.id && dispatch(setPointList(city))
+  }, [city])
 
   const handleSelectCity = (id) => {
     if (id === null) {
-      setPoint({})
-      setPointList([])
-      setCity({})
+      dispatch(setPoint({}))
+      dispatch(setPointList([]))
+      dispatch(setCity({}))
     } else {
       const selectedCity = cityList.find((item) => item.id === id)
-      setCity(selectedCity)
+      dispatch(setCity(selectedCity))
     }
   }
 
   const handleSelectPoint = (id) => {
     if (id === null) {
-      setPoint({})
+      dispatch(setPoint({}))
     } else {
       const selectedPoint = pointList.find((item) => item.id === id)
-      setPoint(selectedPoint)
+      dispatch(setPoint(selectedPoint))
     }
   }
 
@@ -73,33 +67,11 @@ const SelectLocation = (props) => {
 
         <div>Выбрать на карте:</div>
         <div className={cls.map}>
-          <img src={map} alt="map" />
+          <CustomMap />
         </div>
       </div>
     </>
   )
 }
 
-const mapStateToProps = (state) => ({
-  cityList: state.location.cityList,
-  city: state.location.city,
-  pointList: state.location.pointList,
-  point: state.location.point,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  setCityList: () => {
-    dispatch(setCityList())
-  },
-  setCity: (city) => {
-    dispatch(setCity(city))
-  },
-  setPointList: () => {
-    dispatch(setPointList())
-  },
-  setPoint: (point) => {
-    dispatch(setPoint(point))
-  },
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(SelectLocation)
+export default SelectLocation

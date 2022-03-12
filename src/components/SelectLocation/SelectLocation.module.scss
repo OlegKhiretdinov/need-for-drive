@@ -1,8 +1,12 @@
+.wrapper {
+  padding: 32px;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
 .map {
   padding: 16px 0;
-  img {
-    max-width: 100%;
-  }
+  width: 750px;
 }
 
 .select {
@@ -12,4 +16,19 @@
   align-items: center;
   margin-bottom: 45px;
   text-align: right;
+}
+
+@media all and(max-width: 1439px) {
+  .map {
+    width: 550px;
+  }
+}
+
+@media all and(max-width: 1023px) {
+  .wrapper {
+    padding: 32px 0;
+  }
+  .map {
+    width: 90%;
+  }
 }

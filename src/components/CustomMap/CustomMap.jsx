@@ -47,6 +47,8 @@ const CustomMap = () => {
           center: mapCenter,
           zoom: 9,
         }}
+        width="100%"
+        height="350px"
       >
         {pointsCoordinate.map((point, index) => (
           <Placemark key={index} geometry={point} />

@@ -120,9 +120,10 @@ const OrderOptions = () => {
         id={item.handler}
         onChange={handleCheckOtherOptions}
       />
-      <label
-        htmlFor={item.handler}
-      >{`${item.description}, ${item.price}р`}</label>
+      <label htmlFor={item.handler}>
+        <span className={cls.customCheckbox} />
+        {`${item.description}, ${item.price}р`}
+      </label>
     </div>
   ))
 

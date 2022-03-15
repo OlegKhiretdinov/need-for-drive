@@ -11,6 +11,7 @@ import { DEVISE } from "../../utils/const"
 import cls from "./OrderPage.module.scss"
 import { Navigate, useParams } from "react-router-dom"
 import SelectModel from "../SelectModel/SelectModel"
+import OrderOptions from "../OrderOptions/OrderOptions"
 
 const OrderPage = () => {
   const [isShowMenu, setIsShowMenu] = useState(false)
@@ -35,6 +36,8 @@ const OrderPage = () => {
         return <SelectLocation />
       case "model":
         return <SelectModel />
+      case "options":
+        return <OrderOptions />
       default:
         return <Navigate to="/order" />
     }

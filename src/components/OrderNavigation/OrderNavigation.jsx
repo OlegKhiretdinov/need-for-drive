@@ -12,28 +12,30 @@ const navConfig = [
 const OrderNavigation = () => {
   const { step: currentStep } = useParams()
 
-  const { location, model } = useSelector((state) => ({
-    location: state.location,
-    model: state.model.model,
+  const { location, model, price } = useSelector((state) => ({
+    location: state.location.point?.id,
+    model: state.model.model?.id,
+    price: state.options.price,
   }))
 
-  const completedSteps = {
-    location: !!location.point?.id,
-    model: !!model?.id,
-  }
+  // const completedSteps = {
+  //   location: !!location.point?.id,
+  //   model: !!model?.id,
+  //   price: price > 0,
+  // }
 
   const isLinkAvailable = (step) => {
     if (step === "location") {
       return true
     }
     if (step === "model") {
-      return completedSteps.location
+      return !!location
     }
     if (step === "options") {
-      return completedSteps.location && completedSteps.model
+      return !!model
     }
     if (step === "total") {
-      return completedSteps.location && completedSteps.model
+      return price > 0
     }
   }
 

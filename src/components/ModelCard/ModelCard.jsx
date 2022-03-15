@@ -3,16 +3,17 @@ import cls from "./ModelCard.module.scss"
 import carImg from "../../assets/img/default_car.png"
 import { useSelector, useDispatch } from "react-redux"
 import { setModel } from "../../store/carModelReducer"
+import { setCarColors } from "../../store/orderOptionsReducer"
 
 const ModelCard = ({ model }) => {
   const { thumbnail, name, priceMin, priceMax, id } = model
   const imgRef = useRef()
-
   const selectedModelId = useSelector((state) => state.model.model.id)
   const dispatch = useDispatch()
 
   const handleCardClick = () => {
     dispatch(setModel(model))
+    dispatch(setCarColors(model.colors))
   }
 
   return (

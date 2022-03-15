@@ -29,8 +29,14 @@ export const categoryListQuery = () => {
 export const modelListQuery = (filterId) => {
   const suffix =
     filterId === defaultCategoryFilter.id ? "" : `categoryId[id]=${filterId}`
-  return fetch(`${baseUrl}db/car?${suffix}&page=1&limit=3`, {
+  return fetch(`${baseUrl}db/car?${suffix}&page=1&limit=1`, {
     method: "GET",
     headers,
   }).then((response) => response.json())
+}
+
+export const rateQuery = () => {
+  return fetch(`${baseUrl}db/rate`, { method: "GET", headers }).then(
+    (response) => response.json()
+  )
 }

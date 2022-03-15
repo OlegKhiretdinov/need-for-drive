@@ -11,9 +11,10 @@ const buttonConfig = {
 }
 
 const OrderInfo = () => {
-  const { location, model } = useSelector((state) => ({
+  const { location, model, options } = useSelector((state) => ({
     location: state.location,
     model: state.model.model,
+    options: state.options,
   }))
 
   const { step } = useParams()
@@ -28,12 +29,15 @@ const OrderInfo = () => {
         return !location.point?.id
       case "model":
         return !model?.id
+      case "options":
+        return options.price <= 0
       default:
         return false
     }
   }
 
-  const price = model?.id && `${model.priceMin} - ${model.priceMax}`
+  const rangePrice = model?.id && `${model.priceMin} - ${model.priceMax}`
+  const price = options.price || rangePrice
 
   return (
     <div className={cls.wrapper}>
@@ -48,6 +52,34 @@ const OrderInfo = () => {
           <div className={cls.label}>Модель</div>
           <div className={cls.space} />
           <div className={cls.value}>{model.name}</div>
+        </div>
+      )}
+      {options.color && step === "options" && (
+        <div className={cls.row}>
+          <div className={cls.label}>Цвет</div>
+          <div className={cls.space} />
+          <div className={cls.value}>{options.color}</div>
+        </div>
+      )}
+      {options.isFullTank && (
+        <div className={cls.row}>
+          <div className={cls.label}>Полный бак</div>
+          <div className={cls.space} />
+          <div className={cls.value}>Да</div>
+        </div>
+      )}
+      {options.isNeedChildChair && (
+        <div className={cls.row}>
+          <div className={cls.label}>Детское кресло</div>
+          <div className={cls.space} />
+          <div className={cls.value}>Да</div>
+        </div>
+      )}
+      {options.isRightWheel && (
+        <div className={cls.row}>
+          <div className={cls.label}>Правый руль</div>
+          <div className={cls.space} />
+          <div className={cls.value}>Да</div>
         </div>
       )}
       <div className={cls.price}>

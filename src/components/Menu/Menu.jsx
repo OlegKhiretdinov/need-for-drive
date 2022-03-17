@@ -25,7 +25,9 @@ const menuConfig = [
 ]
 
 const Menu = ({ isShowMenu, devise }) => {
-  return !isShowMenu ? (
+  if (isShowMenu) return null
+
+  return (
     <div className={cls.Overlay}>
       <div className={cls.Menu}>
         <ul className={cls.List}>
@@ -57,7 +59,7 @@ const Menu = ({ isShowMenu, devise }) => {
         </div>
       )}
     </div>
-  ) : null
+  )
 }
 
 export default Menu

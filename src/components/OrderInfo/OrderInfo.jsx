@@ -54,7 +54,7 @@ const OrderInfo = () => {
           <div className={cls.value}>{model.name}</div>
         </div>
       )}
-      {options.color && step === "options" && (
+      {options.color && (step === "options" || step === "total") && (
         <div className={cls.row}>
           <div className={cls.label}>Цвет</div>
           <div className={cls.space} />

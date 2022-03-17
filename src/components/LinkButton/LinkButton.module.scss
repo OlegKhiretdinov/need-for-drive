@@ -1,0 +1,27 @@
+@import "../../styles/const.scss";
+
+.link {
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    filter: brightness(90%);
+  }
+
+  &:active {
+    filter: brightness(80%);
+  }
+
+  .blocked {
+    background: $gray_light;
+  }
+}

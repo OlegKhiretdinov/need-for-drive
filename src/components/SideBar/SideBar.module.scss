@@ -1,0 +1,14 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 17px 0px;
+  flex-shrink: 0;
+  width: 64px;
+  height: 100vh;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  background-color: #151b1f;
+}

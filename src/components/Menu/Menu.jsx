@@ -25,10 +25,12 @@ const menuConfig = [
 ]
 
 const Menu = ({ isShowMenu, devise }) => {
-  return !isShowMenu ? (
-    <div className={cls.overlay}>
-      <div className={cls.menu}>
-        <ul className={cls.list}>
+  if (isShowMenu) return null
+
+  return (
+    <div className={cls.Overlay}>
+      <div className={cls.Menu}>
+        <ul className={cls.List}>
           {menuConfig.map((item) => (
             <li key={item.txt}>
               <a href={item.src} className={cls.item}>
@@ -57,7 +59,7 @@ const Menu = ({ isShowMenu, devise }) => {
         </div>
       )}
     </div>
-  ) : null
+  )
 }
 
 export default Menu

@@ -33,28 +33,28 @@ const Menu = ({ isShowMenu, devise }) => {
         <ul className={cls.List}>
           {menuConfig.map((item) => (
             <li key={item.txt}>
-              <a href={item.src} className={cls.Item}>
+              <a href={item.src} className={cls.item}>
                 {item.txt}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className={cls.Social}>
-          <a href="#" className={cls.SocialItem}>
+        <div className={cls.social}>
+          <a href="#" className={cls.socialItem}>
             <TelegramIcon />
           </a>
-          <a href="#" className={cls.SocialItem}>
+          <a href="#" className={cls.socialItem}>
             <FacebookIcon />
           </a>
-          <a href="#" className={cls.SocialItem}>
+          <a href="#" className={cls.socialItem}>
             <InstagramIcon />
           </a>
         </div>
       </div>
 
       {devise === DEVISE.mobile && (
-        <div className={cls.LangWrapper}>
+        <div className={cls.langWrapper}>
           <LanguageSwitcher />
         </div>
       )}

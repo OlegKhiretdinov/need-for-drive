@@ -7,22 +7,18 @@ const navConfig = [
   { name: "Дополнительно", link: "/order/options" },
   { name: "Итого", link: "/order/total" },
 ]
-const navItem = ({ name, link }) => {
-  return (
-    <div key={link} className={cls.navItem}>
-      <Link to={link} exact="true" className={cls.link}>
-        {name}
-      </Link>
-    </div>
-  )
-}
+const navItem = ({ name, link }) => (
+  <div key={link} className={cls.navItem}>
+    <Link to={link} exact="true" className={cls.link}>
+      {name}
+    </Link>
+  </div>
+)
 
 const OrderNavigation = () => {
   return (
     <div className={cls.wrapper}>
-      <div className={cls.navList}>
-        {navConfig.map((item) => navItem(item))}
-      </div>
+      <div className={cls.navList}>{navConfig.map(navItem)}</div>
     </div>
   )
 }

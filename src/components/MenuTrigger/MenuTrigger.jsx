@@ -7,9 +7,9 @@ const MenuMenuTrigger = ({ isShowMenu, setIsShowMenu }) => {
 
   return (
     <>
-      <div onClick={handleTriggerMenuClick} className={cls.Wrapper}>
+      <div onClick={handleTriggerMenuClick} className={cls.wrapper}>
         <div
-          className={`${cls.Trigger} ${isShowMenu ? cls.Open : cls.Close}`}
+          className={`${cls.trigger} ${isShowMenu ? cls.open : cls.close}`}
         />
       </div>
     </>

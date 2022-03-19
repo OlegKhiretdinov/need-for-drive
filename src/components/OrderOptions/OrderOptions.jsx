@@ -97,21 +97,24 @@ const OrderOptions = () => {
     </div>
   ))
 
-  const ratesOption = rates?.map((item) => (
-    <div className={cls.item} key={item.id}>
-      <input
-        type="radio"
-        name="rate"
-        id={item.id}
-        onChange={() => dispatch(setRate(item))}
-        checked={item.id === rateId?.id}
-        className={cls.inputRadio}
-      />
-      <label
-        htmlFor={item.id}
-      >{`${item.rateTypeId.name} ${item.price}₽/${item.rateTypeId.unit}`}</label>
-    </div>
-  ))
+  const ratesOption = rates?.map((item) => {
+    if (!item.rateTypeId) return null
+    return (
+      <div className={cls.item} key={item.id}>
+        <input
+          type="radio"
+          name="rate"
+          id={item.id}
+          onChange={() => dispatch(setRate(item))}
+          checked={item.id === rateId?.id}
+          className={cls.inputRadio}
+        />
+        <label
+          htmlFor={item.id}
+        >{`${item.rateTypeId.name} ${item.price}₽/${item.rateTypeId.unit}`}</label>
+      </div>
+    )
+  })
 
   const otherOrderOptions = otherOptions.map((item) => (
     <div className={cls.item} key={item.handler}>

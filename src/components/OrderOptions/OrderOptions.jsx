@@ -60,7 +60,7 @@ const OrderOptions = () => {
       totalPrice = priceMin
     }
 
-    if (timeIntervalCount > 0) {
+    if (dateFrom && dateTo) {
       dispatch(setPrice(totalPrice))
     } else {
       dispatch(setPrice(0))

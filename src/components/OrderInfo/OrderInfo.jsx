@@ -36,7 +36,7 @@ const OrderInfo = () => {
         return false
     }
   }
-  console.log(options)
+
   const orderDuration = options.dateTo - options.dateFrom
   const rangePrice = model?.id && `${model.priceMin} - ${model.priceMax}`
   const price = options.price || rangePrice

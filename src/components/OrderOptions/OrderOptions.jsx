@@ -122,6 +122,7 @@ const OrderOptions = () => {
         type="checkbox"
         id={item.handler}
         onChange={handleCheckOtherOptions}
+        checked={options[item.name]}
       />
       <label htmlFor={item.handler}>
         <span className={cls.customCheckbox} />

@@ -4,7 +4,7 @@ import cls from "./LinkButton.module.scss"
 const LinkButton = ({ to, text, isLoading, className, isBlocked }) => {
   return (
     <Link
-      className={`${cls.Link} ${className} ${isBlocked ? cls.blocked : ""}`}
+      className={`${cls.link} ${className} ${isBlocked ? cls.blocked : ""}`}
       to={to}
     >
       {isLoading ? null : text}

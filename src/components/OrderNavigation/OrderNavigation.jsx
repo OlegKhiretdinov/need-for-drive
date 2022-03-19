@@ -18,12 +18,6 @@ const OrderNavigation = () => {
     price: state.options.price,
   }))
 
-  // const completedSteps = {
-  //   location: !!location.point?.id,
-  //   model: !!model?.id,
-  //   price: price > 0,
-  // }
-
   const isLinkAvailable = (step) => {
     if (step === "location") {
       return true

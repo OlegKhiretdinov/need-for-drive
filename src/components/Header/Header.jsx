@@ -3,9 +3,9 @@ import cls from "./Header.module.scss"
 
 const Header = () => {
   return (
-    <div className={cls.Header}>
-      <span className={cls.Title}>Need for Drive</span>
-      <div className={cls.Location}>
+    <div className={cls.header}>
+      <span className={cls.title}>Need for Drive</span>
+      <div className={cls.location}>
         <LocationPoint />
         <span>Ульяновск</span>
       </div>

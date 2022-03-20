@@ -1,12 +1,12 @@
 @import "../../styles/const.scss";
 
-.Wrapper {
+.wrapper {
   padding: 5px 0;
   width: 26px;
   cursor: pointer;
 }
 
-.Trigger {
+.trigger {
   width: 26px;
   height: 2px;
   margin: 6px 0;
@@ -23,7 +23,7 @@
   }
 }
 
-.Close {
+.close {
   background: white;
   &::after {
     bottom: -8px;
@@ -34,7 +34,7 @@
   }
 }
 
-.Open {
+.open {
   &::after {
     bottom: 0px;
     transform: rotate(-45deg);
@@ -47,18 +47,18 @@
 }
 
 @media all and (max-width: 767px) {
-  .Close {
+  .close {
     background: $black;
   }
 
-  .Trigger {
+  .trigger {
     &::after,
     &::before {
       background: $black;
     }
   }
 
-  .Open {
+  .open {
     background: transparent;
     &::after,
     &::before {

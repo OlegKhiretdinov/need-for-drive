@@ -60,7 +60,7 @@ const OrderOptions = () => {
       totalPrice = priceMin
     }
 
-    if (timeIntervalCount > 0) {
+    if (dateFrom && dateTo) {
       dispatch(setPrice(totalPrice))
     } else {
       dispatch(setPrice(0))
@@ -106,21 +106,24 @@ const OrderOptions = () => {
     </div>
   ))
 
-  const ratesOption = rates?.map((item) => (
-    <div className={cls.item} key={item.id}>
-      <input
-        type="radio"
-        name="rate"
-        id={item.id}
-        onChange={() => dispatch(setRate(item))}
-        checked={item.id === rateId?.id}
-        className={cls.inputRadio}
-      />
-      <label
-        htmlFor={item.id}
-      >{`${item.rateTypeId.name} ${item.price}₽/${item.rateTypeId.unit}`}</label>
-    </div>
-  ))
+  const ratesOption = rates?.map((item) => {
+    if (!item.rateTypeId) return null
+    return (
+      <div className={cls.item} key={item.id}>
+        <input
+          type="radio"
+          name="rate"
+          id={item.id}
+          onChange={() => dispatch(setRate(item))}
+          checked={item.id === rateId?.id}
+          className={cls.inputRadio}
+        />
+        <label
+          htmlFor={item.id}
+        >{`${item.rateTypeId.name} ${item.price}₽/${item.rateTypeId.unit}`}</label>
+      </div>
+    )
+  })
 
   const otherOrderOptions = otherOptions.map((item) => (
     <div className={cls.item} key={item.handler}>
@@ -128,6 +131,7 @@ const OrderOptions = () => {
         type="checkbox"
         id={item.handler}
         onChange={handleCheckOtherOptions}
+        checked={options[item.name]}
       />
       <label htmlFor={item.handler}>
         <span className={cls.customCheckbox} />

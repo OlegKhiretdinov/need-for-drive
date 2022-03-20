@@ -1,6 +1,6 @@
 @import "../../styles/const.scss";
 
-.Overlay {
+.overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10,19 +10,19 @@
   z-index: 20;
 }
 
-.Menu {
+.menu {
   position: absolute;
   left: 128px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.List {
+.list {
   padding: 0;
   margin: 0;
 }
 
-.Item {
+.item {
   font-weight: 500;
   font-size: 32px;
   line-height: 37px;
@@ -33,13 +33,13 @@
   }
 }
 
-.Social {
+.social {
   height: 32px;
   position: absolute;
   bottom: -70px;
 }
 
-.SocialItem {
+.socialItem {
   margin-right: 24px;
   color: white;
   &:last-of-type {
@@ -50,32 +50,32 @@
   }
 }
 
-.LangWrapper {
+.langWrapper {
   position: absolute;
   left: 20px;
   bottom: 20px;
 }
 
 @media all and (max-width: 1439px) {
-  .Menu {
+  .menu {
     left: 97px;
   }
 }
 
 @media all and (max-width: 1023px) {
-  .Item {
+  .item {
     font-size: 28px;
     line-height: 33px;
   }
 }
 
 @media all and (max-width: 767px) {
-  .Menu {
+  .menu {
     left: 28px;
     top: 80px;
     transform: translateY(0);
   }
-  .Item {
+  .item {
     font-size: 22px;
     line-height: 26px;
   }

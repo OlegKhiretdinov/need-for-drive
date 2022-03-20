@@ -11,3 +11,15 @@ export const getDevice = (element) => {
     return DEVISE.desktop
   }
 }
+
+export const dateDuration = (msc) => {
+  let hours = Math.ceil(msc / (1000 * 60 * 60))
+  if (hours < 24) {
+    return `${hours}ч`
+  }
+
+  const days = Math.floor(hours / 24)
+  hours = hours % 24
+
+  return `${days}д ${hours}ч`
+}

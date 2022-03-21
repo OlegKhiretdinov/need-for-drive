@@ -63,11 +63,10 @@ const SelectLocation = () => {
           handleSelect={handleSelectPoint}
         />
       </div>
-      <div>
-        <div>Выбрать на карте:</div>
-        <div className={cls.map}>
-          <CustomMap />
-        </div>
+
+      <div>Выбрать на карте:</div>
+      <div className={cls.map}>
+        <CustomMap />
       </div>
     </>
   )

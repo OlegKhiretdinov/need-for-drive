@@ -60,11 +60,17 @@ export const setCategory = (category) => ({
   category,
 })
 
-export const setModelList = (filterId) => async (dispatch) => {
+export const setModelList = (filterId) => async (dispatch, getState) => {
+  if (getState().model.isLoading) {
+    window.stop()
+  }
+
   dispatch(setIsLoading(true))
   const modelList = await modelListQuery(filterId)
-  dispatch(setIsLoading(false))
-  dispatch(setModelListData(modelList.data))
+  if (modelList) {
+    dispatch(setIsLoading(false))
+    dispatch(setModelListData(modelList.data))
+  }
 }
 
 export const setCategoryList = () => async (dispatch) => {

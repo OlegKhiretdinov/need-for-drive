@@ -28,9 +28,9 @@ const Menu = ({ isShowMenu, devise }) => {
   if (isShowMenu) return null
 
   return (
-    <div className={cls.Overlay}>
-      <div className={cls.Menu}>
-        <ul className={cls.List}>
+    <div className={cls.overlay}>
+      <div className={cls.menu}>
+        <ul className={cls.list}>
           {menuConfig.map((item) => (
             <li key={item.txt}>
               <a href={item.src} className={cls.item}>

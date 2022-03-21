@@ -1,0 +1,111 @@
+@import "../../styles/const.scss";
+
+.optionsItem {
+  margin-bottom: 32px;
+}
+
+.optionsTitle {
+  margin-bottom: 16px;
+}
+
+.inputRadio {
+  margin: 0px 8px;
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border: 1px solid $gray;
+  border-radius: 50%;
+  cursor: pointer;
+
+  + label {
+    color: $gray;
+    cursor: pointer;
+  }
+
+  &:checked {
+    border: 3px solid $accent;
+    + label {
+      color: $black;
+    }
+  }
+}
+
+.selectColor {
+  display: flex;
+  flex-wrap: wrap;
+
+  .item {
+    margin-right: 8px;
+    &:first-of-type input {
+      margin-left: 0px;
+    }
+  }
+}
+
+.selectRate {
+  .item {
+    margin-bottom: 8px;
+    input {
+      margin-left: 0;
+    }
+  }
+}
+
+.otherOptions {
+  label {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: $gray;
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .customCheckbox {
+    margin: 0px;
+    margin-right: 8px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid $gray;
+  }
+
+  input:checked + label {
+    color: $black;
+
+    .customCheckbox {
+      border-color: $accent;
+      &::after {
+        content: "";
+        display: block;
+        width: 13px;
+        height: 10px;
+        background-image: url("../../assets/icons/checked.svg");
+      }
+    }
+  }
+}
+
+.dateInputWrapper {
+  display: grid;
+  grid-template-columns: 15px 224px;
+  align-items: baseline;
+}
+
+.rangePicker {
+  margin-bottom: 15px;
+}
+
+.input {
+  margin: 0px 8px 5px;
+  width: 215px;
+  border: none;
+  border-bottom: 1px solid $black;
+  height: 20px;
+}

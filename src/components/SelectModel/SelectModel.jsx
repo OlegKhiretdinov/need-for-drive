@@ -1,31 +1,26 @@
 import { useEffect, useState } from "react"
-import { connect } from "react-redux"
-import {
-  setCategory,
-  setCategoryList,
-  setModel,
-  setModelList,
-} from "../../store/carModelReducer"
+import { useDispatch, useSelector } from "react-redux"
+import { setCategoryList, setModelList } from "../../store/carModelReducer"
 import { defaultCategoryFilter } from "../../utils/const"
 import Loader from "../Loader/Loader"
 import ModelCard from "../ModelCard/ModelCard"
 import cls from "./SelectModel.module.scss"
 
-const SelectModel = ({
-  categoryList,
-  setCategoryList,
-  setModelList,
-  modelList,
-  isLoading,
-}) => {
+const SelectModel = () => {
+  const { modelList, categoryList, isLoading } = useSelector((state) => ({
+    modelList: state.model.modelList,
+    categoryList: state.model.categoryList,
+    isLoading: state.model.isLoading,
+  }))
+  const dispatch = useDispatch()
   const [filterId, setFilterId] = useState(defaultCategoryFilter.id)
 
   useEffect(() => {
-    setCategoryList()
+    dispatch(setCategoryList())
   }, [])
 
   useEffect(() => {
-    setModelList(filterId)
+    dispatch(setModelList(filterId))
   }, [filterId])
 
   const handleButtonClick = ({ target }) => {
@@ -59,25 +54,4 @@ const SelectModel = ({
   )
 }
 
-const mapStateToProps = (state) => ({
-  modelList: state.model.modelList,
-  categoryList: state.model.categoryList,
-  isLoading: state.model.isLoading,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  setModelList: (filterId) => {
-    dispatch(setModelList(filterId))
-  },
-  setCategoryList: (category) => {
-    dispatch(setCategoryList(category))
-  },
-  setModel: (model) => {
-    dispatch(setModel(model))
-  },
-  setCategory: (category) => {
-    dispatch(setCategory(category))
-  },
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(SelectModel)
+export default SelectModel

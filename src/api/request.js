@@ -34,3 +34,9 @@ export const modelListQuery = (filterId) => {
     headers,
   }).then((response) => response.json())
 }
+
+export const rateQuery = () => {
+  return fetch(`${baseUrl}db/rate`, { method: "GET", headers }).then(
+    (response) => response.json()
+  )
+}

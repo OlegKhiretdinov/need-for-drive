@@ -46,29 +46,27 @@ const SelectLocation = () => {
 
   return (
     <>
-      <div className={cls.wrapper}>
-        <div className={cls.select}>
-          <div>Город</div>
-          <Autocomplete
-            placeholder="Начните вводить город ..."
-            initialValue={city?.name}
-            list={cityList}
-            handleSelect={handleSelectCity}
-          />
-          <div>Пункт выдачи</div>
-          <Autocomplete
-            placeholder="Начните вводить пункт ..."
-            isDisable={!city.name}
-            initialValue={point.name}
-            list={pointList}
-            handleSelect={handleSelectPoint}
-          />
-        </div>
+      <div className={cls.select}>
+        <div>Город</div>
+        <Autocomplete
+          placeholder="Начните вводить город ..."
+          initialValue={city?.name}
+          list={cityList}
+          handleSelect={handleSelectCity}
+        />
+        <div>Пункт выдачи</div>
+        <Autocomplete
+          placeholder="Начните вводить пункт ..."
+          isDisable={!city.name}
+          initialValue={point.name}
+          list={pointList}
+          handleSelect={handleSelectPoint}
+        />
+      </div>
 
-        <div>Выбрать на карте:</div>
-        <div className={cls.map}>
-          <CustomMap />
-        </div>
+      <div>Выбрать на карте:</div>
+      <div className={cls.map}>
+        <CustomMap />
       </div>
     </>
   )

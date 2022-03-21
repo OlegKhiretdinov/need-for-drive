@@ -21,7 +21,8 @@
     filter: brightness(80%);
   }
 
-  .blocked {
+  &.blocked {
     background: $gray_light;
+    cursor: not-allowed;
   }
 }

@@ -2,11 +2,10 @@ import { Link } from "react-router-dom"
 import cls from "./LinkButton.module.scss"
 
 const LinkButton = ({ to, text, isLoading, className, isBlocked }) => {
-  return (
-    <Link
-      className={`${cls.link} ${className} ${isBlocked ? cls.blocked : ""}`}
-      to={to}
-    >
+  return isBlocked ? (
+    <span className={`${cls.link} ${className} ${cls.blocked}`}>{text}</span>
+  ) : (
+    <Link className={`${cls.link} ${className}`} to={to}>
       {isLoading ? null : text}
     </Link>
   )

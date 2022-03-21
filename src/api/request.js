@@ -1,3 +1,5 @@
+import { defaultCategoryFilter } from "../utils/const"
+
 const baseUrl = "https://api-factory.simbirsoft1.com/api/"
 
 const headers = {
@@ -16,4 +18,19 @@ export const getPointList = (cityId) => {
   return fetch(`${baseUrl}db/point${filter}`, { method: "GET", headers }).then(
     (response) => response.json()
   )
+}
+
+export const categoryListQuery = () => {
+  return fetch(`${baseUrl}db/category`, { method: "GET", headers }).then(
+    (response) => response.json()
+  )
+}
+
+export const modelListQuery = (filterId) => {
+  const suffix =
+    filterId === defaultCategoryFilter.id ? "" : `categoryId[id]=${filterId}`
+  return fetch(`${baseUrl}db/car?${suffix}`, {
+    method: "GET",
+    headers,
+  }).then((response) => response.json())
 }

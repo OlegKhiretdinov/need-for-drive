@@ -14,9 +14,15 @@
 
 .link {
   text-decoration: none;
-  color: $gray;
+  color: $black;
   font-size: 14px;
   font-weight: 500;
+  &.active {
+    color: $accent;
+  }
+  &.disable {
+    color: $gray;
+  }
 }
 
 .activeLink {

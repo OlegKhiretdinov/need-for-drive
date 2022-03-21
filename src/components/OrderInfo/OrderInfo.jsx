@@ -11,8 +11,11 @@ const buttonConfig = {
 }
 
 const OrderInfo = () => {
-  const location = useSelector((state) => state.location)
-  const { model } = useSelector((state) => state.model)
+  const { location, model } = useSelector((state) => ({
+    location: state.location,
+    model: state.model.model,
+  }))
+
   const { step } = useParams()
 
   const SelectedLocation = location.point?.address

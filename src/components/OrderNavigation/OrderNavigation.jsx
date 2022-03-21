@@ -1,24 +1,63 @@
-import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { Link, useParams } from "react-router-dom"
 import cls from "./OrderNavigation.module.scss"
 
 const navConfig = [
-  { name: "Местоположение", link: "/order/location" },
-  { name: "Модель", link: "/order/model" },
-  { name: "Дополнительно", link: "/order/options" },
-  { name: "Итого", link: "/order/total" },
+  { name: "Местоположение", step: "location" },
+  { name: "Модель", step: "model" },
+  { name: "Дополнительно", step: "options" },
+  { name: "Итого", step: "total" },
 ]
-const navItem = ({ name, link }) => (
-  <div key={link} className={cls.navItem}>
-    <Link to={link} exact="true" className={cls.link}>
-      {name}
-    </Link>
-  </div>
-)
 
 const OrderNavigation = () => {
+  const { step: currentStep } = useParams()
+
+  const { location, model } = useSelector((state) => ({
+    location: state.location,
+    model: state.model.model,
+  }))
+
+  const completedSteps = {
+    location: !!location.point?.id,
+    model: !!model?.id,
+  }
+
+  const isLinkAvailable = (step) => {
+    if (step === "location") {
+      return true
+    }
+    if (step === "model") {
+      return completedSteps.location
+    }
+    if (step === "options") {
+      return completedSteps.location && completedSteps.model
+    }
+    if (step === "total") {
+      return completedSteps.location && completedSteps.model
+    }
+  }
+
   return (
     <div className={cls.wrapper}>
-      <div className={cls.navList}>{navConfig.map(navItem)}</div>
+      <div className={cls.navList}>
+        {navConfig.map(({ name, step }) => (
+          <div key={step} className={cls.navItem}>
+            {isLinkAvailable(step) ? (
+              <Link
+                to={`/order/${step}`}
+                exact="true"
+                className={`${cls.link} ${
+                  step === currentStep ? cls.active : ""
+                }`}
+              >
+                {name}
+              </Link>
+            ) : (
+              <span className={`${cls.link} ${cls.disable}`}>{name}</span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import MainPage from "./components/MainPage/MainPage"
 import OrderPage from "./components/OrderPage/OrderPage"
 
@@ -7,7 +7,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/order/*" element={<OrderPage />} />
+        <Route exact path="/order" element={<Navigate to="location" />} />
+        <Route path="/order/:step" element={<OrderPage />} />
       </Routes>
     </BrowserRouter>
   )

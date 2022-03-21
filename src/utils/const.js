@@ -47,3 +47,11 @@ export const msConvertToUnit = {
   "7 дней": 604800000,
   "30 дней": 2592000000,
 }
+
+export const dateFormat = {
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+}

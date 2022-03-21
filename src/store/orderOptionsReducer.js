@@ -1,4 +1,4 @@
-import { rateQuery } from "../api/request"
+import { orderConfirmQuery, rateQuery } from "../api/request"
 import { defaultCarColor } from "../utils/const"
 
 const SET_COLOR = "SET_COLOR"
@@ -104,6 +104,11 @@ export const setPrice = (price) => ({
 export const setRates = () => async (dispatch) => {
   const rates = await rateQuery()
   dispatch(setRatesData(rates.data))
+}
+
+export const setOrderId = (orderData) => async (dispatch) => {
+  const orderId = await orderConfirmQuery(orderData)
+  console.log(orderId)
 }
 
 export default orderOptionsReducer

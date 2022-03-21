@@ -40,3 +40,11 @@ export const rateQuery = () => {
     (response) => response.json()
   )
 }
+
+export const orderConfirmQuery = (orderData) => {
+  return fetch(`${baseUrl}db/order`, {
+    method: "GET",
+    headers,
+    orderData,
+  }).then((response) => response.json())
+}

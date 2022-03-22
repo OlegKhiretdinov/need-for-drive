@@ -1,4 +1,4 @@
-import { rateQuery } from "../api/request"
+import { orderConfirmQuery, rateQuery } from "../api/request"
 import { defaultCarColor } from "../utils/const"
 
 const SET_COLOR = "SET_COLOR"
@@ -11,6 +11,7 @@ const SET_RIGHT_WHEEL = "SET_RIGHT_WHEEL"
 const SET_DATE_FROM = "SET_DATE_FROM"
 const SET_DATE_TO = "SET_DATE_TO"
 const SET_PRICE = "SET_PRICE"
+const SET_ORDER_ID = "SET_ORDER_ID"
 
 const initialState = {
   carColors: [defaultCarColor],
@@ -23,6 +24,7 @@ const initialState = {
   isFullTank: false,
   isNeedChildChair: false,
   isRightWheel: false,
+  orderId: null,
 }
 
 const orderOptionsReducer = (state = initialState, action) => {
@@ -47,6 +49,8 @@ const orderOptionsReducer = (state = initialState, action) => {
       return { ...state, dateTo: action.dateTo }
     case SET_PRICE:
       return { ...state, price: action.price }
+    case SET_ORDER_ID:
+      return { ...state, orderId: action.orderId }
     default:
       return state
   }
@@ -101,9 +105,19 @@ export const setPrice = (price) => ({
   price,
 })
 
+const setOrderIdData = (orderId) => ({
+  type: SET_ORDER_ID,
+  orderId,
+})
+
 export const setRates = () => async (dispatch) => {
   const rates = await rateQuery()
   dispatch(setRatesData(rates.data))
+}
+
+export const setOrderId = (orderData) => async (dispatch) => {
+  const orderId = await orderConfirmQuery(orderData)
+  dispatch(setOrderIdData(orderId.data.id))
 }
 
 export default orderOptionsReducer

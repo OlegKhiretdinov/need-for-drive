@@ -25,4 +25,8 @@
     background: $gray_light;
     cursor: not-allowed;
   }
+
+  &.cancel {
+    background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
+  }
 }

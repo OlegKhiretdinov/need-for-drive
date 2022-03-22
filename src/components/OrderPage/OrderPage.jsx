@@ -1,17 +1,18 @@
 import { useCallback, useEffect, useState } from "react"
-import SideBar from "../SideBar/SideBar"
-import Header from "../Header/Header"
+import { Navigate, useParams } from "react-router-dom"
 import Menu from "../Menu/Menu"
-import MenuTrigger from "../MenuTrigger/MenuTrigger"
-import OrderNavigation from "../OrderNavigation/OrderNavigation"
-import SelectLocation from "../SelectLocation/SelectLocation"
+import Header from "../Header/Header"
+import SideBar from "../SideBar/SideBar"
 import OrderInfo from "../OrderInfo/OrderInfo"
+import OrderTotal from "../OrderTotal/OrderTotal"
+import MenuTrigger from "../MenuTrigger/MenuTrigger"
+import SelectModel from "../SelectModel/SelectModel"
+import OrderOptions from "../OrderOptions/OrderOptions"
+import SelectLocation from "../SelectLocation/SelectLocation"
+import OrderNavigation from "../OrderNavigation/OrderNavigation"
 import { getDevice } from "../../utils/utils"
 import { DEVISE } from "../../utils/const"
 import cls from "./OrderPage.module.scss"
-import { Navigate, useParams } from "react-router-dom"
-import SelectModel from "../SelectModel/SelectModel"
-import OrderOptions from "../OrderOptions/OrderOptions"
 
 const OrderPage = () => {
   const [isShowMenu, setIsShowMenu] = useState(false)
@@ -38,6 +39,8 @@ const OrderPage = () => {
         return <SelectModel />
       case "options":
         return <OrderOptions />
+      case "total":
+        return <OrderTotal />
       default:
         return <Navigate to="/order" />
     }

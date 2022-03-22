@@ -5,6 +5,7 @@ const baseUrl = "https://api-factory.simbirsoft1.com/api/"
 const headers = {
   "X-Api-Factory-Application-Id": "5e25c641099b810b946c5d5b",
   "Content-Type": "application/json",
+  Authorization: "Bearer 4cbcea96de",
 }
 
 export const getCityList = () => {
@@ -39,4 +40,12 @@ export const rateQuery = () => {
   return fetch(`${baseUrl}db/rate`, { method: "GET", headers }).then(
     (response) => response.json()
   )
+}
+
+export const orderConfirmQuery = (orderData) => {
+  return fetch(`${baseUrl}db/order`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(orderData),
+  }).then((response) => response.json())
 }

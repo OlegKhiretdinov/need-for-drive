@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import cls from "./OrderNavigation.module.scss"
 
 const navConfig = [
@@ -17,6 +17,10 @@ const OrderNavigation = () => {
     model: state.model.model?.id,
     price: state.options.price,
   }))
+
+  const [searchParams] = useSearchParams()
+  const orderStatus = searchParams.get("order")
+  const orderId = searchParams.get("id")
 
   const isLinkAvailable = (step) => {
     if (step === "location") {
@@ -36,23 +40,27 @@ const OrderNavigation = () => {
   return (
     <div className={cls.wrapper}>
       <div className={cls.navList}>
-        {navConfig.map(({ name, step }) => (
-          <div key={step} className={cls.navItem}>
-            {isLinkAvailable(step) ? (
-              <Link
-                to={`/order/${step}`}
-                exact="true"
-                className={`${cls.link} ${
-                  step === currentStep ? cls.active : ""
-                }`}
-              >
-                {name}
-              </Link>
-            ) : (
-              <span className={`${cls.link} ${cls.disable}`}>{name}</span>
-            )}
-          </div>
-        ))}
+        {orderStatus === "confirm" ? (
+          <span className={cls.link}>Заказ номер {orderId}</span>
+        ) : (
+          navConfig.map(({ name, step }) => (
+            <div key={step} className={cls.navItem}>
+              {isLinkAvailable(step) ? (
+                <Link
+                  to={`/order/${step}`}
+                  exact="true"
+                  className={`${cls.link} ${
+                    step === currentStep ? cls.active : ""
+                  }`}
+                >
+                  {name}
+                </Link>
+              ) : (
+                <span className={`${cls.link} ${cls.disable}`}>{name}</span>
+              )}
+            </div>
+          ))
+        )}
       </div>
     </div>
   )

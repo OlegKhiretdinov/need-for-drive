@@ -65,7 +65,16 @@ const OrderOptions = () => {
     } else {
       dispatch(setPrice(0))
     }
-  }, [dateFrom, dateTo, rateId, isFullTank, isNeedChildChair, isRightWheel])
+  }, [
+    dateFrom,
+    dateTo,
+    rateId,
+    isFullTank,
+    isNeedChildChair,
+    isRightWheel,
+    priceMax,
+    priceMin,
+  ])
 
   const handleColorClick = (e) => {
     dispatch(setColor(e.target.id))
@@ -144,6 +153,7 @@ const OrderOptions = () => {
           <ReactDatePicker
             className={cls.input}
             minDate={new Date()}
+            maxDate={dateTo}
             onChange={handleSelectDateFrom}
             selected={dateFrom}
             showTimeSelect

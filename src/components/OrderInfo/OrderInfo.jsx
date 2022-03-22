@@ -8,7 +8,7 @@ const buttonConfig = {
   location: { text: "Выбрать модель", to: "model" },
   model: { text: "Дополнительно", to: "options" },
   options: { text: "Итого", to: "total" },
-  total: { text: "Заказать", to: "total" },
+  total: { text: "Заказать", to: "total/?order=modal" },
 }
 
 const OrderInfo = () => {
@@ -56,21 +56,21 @@ const OrderInfo = () => {
           <div className={cls.value}>{model.name}</div>
         </div>
       )}
-      {options.color && step === "options" && (
+      {options.color && (
         <div className={cls.row}>
           <div className={cls.label}>Цвет</div>
           <div className={cls.space} />
           <div className={cls.value}>{options.color}</div>
         </div>
       )}
-      {orderDuration > 0 && step === "options" && (
+      {orderDuration > 0 && (
         <div className={cls.row}>
           <div className={cls.label}>Длительность аренды</div>
           <div className={cls.space} />
           <div className={cls.value}>{dateDuration(orderDuration)}</div>
         </div>
       )}
-      {options.rateId.id && step === "options" && (
+      {options.rateId.id && (
         <div className={cls.row}>
           <div className={cls.label}>Тариф</div>
           <div className={cls.space} />

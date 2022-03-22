@@ -22,7 +22,7 @@ const OrderTotal = () => {
 
   return (
     <>
-      <div>
+      <div className={cls.wrapper}>
         <div className={cls.description}>
           <div className={`${cls.item} ${cls.model}`}>{model}</div>
           <div className={`${cls.item} ${cls.number}`}>{number}</div>
@@ -34,6 +34,7 @@ const OrderTotal = () => {
             {`${new Date(dateFrom).toLocaleDateString("ru", dateFormat)}`}
           </div>
         </div>
+        <div className={cls.space} />
         <div className={cls.thumbnail}>
           <img
             src={thumbnail?.path}

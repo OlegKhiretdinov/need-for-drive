@@ -15,7 +15,7 @@ const LinkButton = ({
   ) : (
     <Link
       className={`${cls.link} ${className} ${isCancel ? cls.cancel : ""}`}
-      to={to || null}
+      to={to}
       onClick={onClick}
     >
       {isLoading ? null : text}

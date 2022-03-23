@@ -19,8 +19,7 @@ const OrderNavigation = () => {
   }))
 
   const [searchParams] = useSearchParams()
-  const orderStatus = searchParams.get("order")
-  const orderId = searchParams.get("id")
+  const orderId = searchParams.get("orderId")
 
   const isLinkAvailable = (step) => {
     if (step === "location") {
@@ -40,7 +39,7 @@ const OrderNavigation = () => {
   return (
     <div className={cls.wrapper}>
       <div className={cls.navList}>
-        {orderStatus === "confirm" ? (
+        {orderId ? (
           <span className={cls.link}>Заказ номер {orderId}</span>
         ) : (
           navConfig.map(({ name, step }) => (

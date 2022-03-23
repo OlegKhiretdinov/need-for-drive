@@ -32,6 +32,7 @@ const Autocomplete = ({
   const handleInputChange = (e) => {
     setValue(e.target.value)
     setAutocompleteList(searchByList(list, e.target.value))
+    handleSelect(null)
   }
 
   const handleClickClear = () => {

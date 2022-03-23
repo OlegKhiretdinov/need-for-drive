@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import { dateDuration } from "../../utils/utils"
 import LinkButton from "../LinkButton/LinkButton"
 import cls from "./OrderInfo.module.scss"
@@ -23,6 +23,9 @@ const OrderInfo = () => {
   const SelectedLocation = location.point?.address
     ? `${location.city.name}, ${location.point?.address}`
     : ""
+
+  const [searchParams] = useSearchParams()
+  const orderId = searchParams.get("orderId")
 
   const getButtonStatus = (step) => {
     switch (step) {
@@ -101,13 +104,22 @@ const OrderInfo = () => {
       <div className={cls.price}>
         <b>Цена:</b> {price}
       </div>
-      <LinkButton
-        to={`/order/${buttonConfig[step].to}`}
-        text={buttonConfig[step].text}
-        isLoading={false}
-        className={cls.orderButton}
-        isBlocked={getButtonStatus(step)}
-      />
+      {orderId ? (
+        <LinkButton
+          to={`#`}
+          text={"Отменить"}
+          isCancel={true}
+          className={cls.orderButton}
+        />
+      ) : (
+        <LinkButton
+          to={`/order/${buttonConfig[step].to}`}
+          text={buttonConfig[step].text}
+          isLoading={false}
+          className={cls.orderButton}
+          isBlocked={getButtonStatus(step)}
+        />
+      )}
     </div>
   )
 }

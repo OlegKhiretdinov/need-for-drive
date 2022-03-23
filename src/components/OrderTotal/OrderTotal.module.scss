@@ -45,6 +45,12 @@
   flex-grow: 0;
 }
 
+.confirmTitle {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
 @media all and (max-width: 1200px) {
   .space {
     width: 100px;

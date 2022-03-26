@@ -40,7 +40,10 @@ const OrderInfo = () => {
     }
   }
 
-  const orderDuration = options.dateTo - options.dateFrom
+  const orderDuration =
+    options.dateTo && options.dateFrom
+      ? options.dateTo - options.dateFrom
+      : null
   const rangePrice = model?.id && `${model.priceMin} - ${model.priceMax}`
   const price = options.price || rangePrice
 

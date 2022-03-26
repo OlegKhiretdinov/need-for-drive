@@ -140,6 +140,16 @@ const OrderOptions = () => {
     </div>
   ))
 
+  const getDateLimit = (date, side) => {
+    if (side === "min") {
+      date = date || new Date().getTime()
+      return date + 86400000
+    }
+    if (side === "max") {
+      return date && Math.max(date - 86400000, new Date().getTime())
+    }
+  }
+
   return (
     <>
       <div className={cls.optionsItem}>
@@ -153,25 +163,26 @@ const OrderOptions = () => {
           <ReactDatePicker
             className={cls.input}
             minDate={new Date()}
-            maxDate={dateTo}
+            maxDate={getDateLimit(dateTo, "max")}
             onChange={handleSelectDateFrom}
             selected={dateFrom}
             showTimeSelect
             isClearable
-            dateFormat="MM.dd.yy hh:mm"
+            dateFormat="dd.MM.yy HH:mm"
             placeholderText="Введите дату и время"
+            timeIntervals={60}
           />
         </div>
         <div className={cls.dateInputWrapper}>
           <span>По</span>
           <ReactDatePicker
             className={cls.input}
-            minDate={dateFrom || new Date()}
+            minDate={getDateLimit(dateFrom, "min")}
             onChange={handleSelectDateTo}
             selected={dateTo}
             showTimeSelect
             isClearable
-            dateFormat="MM.dd.yy hh:mm"
+            dateFormat="dd.MM.yy HH:mm"
             placeholderText="Введите дату и время"
           />
         </div>

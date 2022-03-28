@@ -1,7 +1,5 @@
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
 import { ReactComponent as TelegramIcon } from "../../assets/icons/telegram.svg"
-import { ReactComponent as InstagramIcon } from "../../assets/icons/instagram.svg"
-import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg"
 import cls from "./Menu.module.scss"
 import { DEVISE } from "../../utils/const"
 
@@ -43,12 +41,6 @@ const Menu = ({ isShowMenu, devise }) => {
         <div className={cls.social}>
           <a href="#" className={cls.socialItem}>
             <TelegramIcon />
-          </a>
-          <a href="#" className={cls.socialItem}>
-            <FacebookIcon />
-          </a>
-          <a href="#" className={cls.socialItem}>
-            <InstagramIcon />
           </a>
         </div>
       </div>

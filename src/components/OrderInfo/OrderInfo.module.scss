@@ -1,0 +1,59 @@
+@import "../../styles/const.scss";
+
+.wrapper {
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 32px;
+  width: 288px;
+  border-left: 1px solid $gray_light;
+}
+
+.title {
+  text-align: right;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.label {
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.space {
+  flex-shrink: 1;
+  flex-grow: 1;
+  margin: 0 5px 3px;
+  border-bottom: 1px dotted $gray;
+}
+
+.value {
+  flex-shrink: 1;
+  flex-grow: 0;
+  max-width: 40%;
+  color: $gray;
+  text-align: right;
+}
+
+.price {
+  padding: 32px 0;
+  font-size: 16px;
+}
+
+.orderButton {
+  padding: 15px;
+  width: 288px;
+  box-sizing: border-box;
+}
+
+@media all and(max-width: 1023px) {
+  .wrapper {
+    padding: 0 0 16px;
+    border-left: none;
+    flex-shrink: 1;
+  }
+}

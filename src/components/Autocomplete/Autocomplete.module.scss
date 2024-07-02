@@ -1,0 +1,53 @@
+@import "../../styles/const.scss";
+
+.wrapper {
+  position: relative;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 224px;
+}
+
+.field {
+  padding: 2px 20px 2px 8px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid $gray;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clear {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+  color: $black;
+  svg {
+    vertical-align: top;
+  }
+}
+
+.list {
+  width: 100%;
+  max-height: 106px;
+  position: absolute;
+  background: white;
+  border: 1px solid $gray_light;
+  overflow: auto;
+  cursor: default;
+  z-index: 100;
+}
+
+.item {
+  margin: 8px;
+  color: $gray;
+  text-align: left;
+  &:hover {
+    color: $accent;
+  }
+}

@@ -1,8 +1,16 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import MainPage from "./components/MainPage/MainPage"
+import OrderPage from "./components/OrderPage/OrderPage"
+
 const App = () => {
   return (
-    <div>
-      <h1>Neef for Drive</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route exact path="/order" element={<Navigate to="location" />} />
+        <Route path="/order/:step" element={<OrderPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

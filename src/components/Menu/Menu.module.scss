@@ -1,0 +1,82 @@
+@import "../../styles/const.scss";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #111518;
+  z-index: 20;
+}
+
+.menu {
+  position: absolute;
+  left: 128px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: $accent;
+  }
+}
+
+.social {
+  height: 32px;
+  position: absolute;
+  bottom: -70px;
+}
+
+.socialItem {
+  margin-right: 24px;
+  color: white;
+  &:last-of-type {
+    margin-right: 0;
+  }
+  &:hover {
+    color: $accent;
+  }
+}
+
+.langWrapper {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+@media all and (max-width: 1439px) {
+  .menu {
+    left: 97px;
+  }
+}
+
+@media all and (max-width: 1023px) {
+  .item {
+    font-size: 28px;
+    line-height: 33px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .menu {
+    left: 28px;
+    top: 80px;
+    transform: translateY(0);
+  }
+  .item {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
